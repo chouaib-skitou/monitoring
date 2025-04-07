@@ -5,29 +5,62 @@ services:
     build: ./analytics-app
     ports:
       - '3000:3000'
-    networks:
-      - monitoring-net
-
-  prometheus:
-    image: prom/prometheus:latest
     volumes:
-      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-    ports:
-      - '9090:9090'
+      - ./logs:/app/logs
     networks:
       - monitoring-net
 
-  grafana:
-    image: grafana/grafana:latest
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.0
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
     ports:
-      - '3001:3000'
+      - "9200:9200"
+    networks:
+      - monitoring-net
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.0
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    networks:
+      - monitoring-net
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.17.0
     volumes:
-      - grafana-storage:/var/lib/grafana
+      - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+    ports:
+      - "5000:5000"
+    depends_on:
+      - elasticsearch
     networks:
       - monitoring-net
 
-volumes:
-  grafana-storage:
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.17.0
+    user: root
+    command: ["--strict.perms=false"]
+    entrypoint: ["filebeat", "-e", "-c", "/usr/share/filebeat/filebeat.yml"]
+    volumes:
+      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - ./logs:/app-logs
+    depends_on:
+      - logstash
+    networks:
+      - monitoring-net
+
 
 networks:
   monitoring-net:
+
+volumes:
+  grafana-storage:
