@@ -1,0 +1,25 @@
+# Node dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Editor & system files
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# Logs
+logs
+*.log
+
+# Env vars
+.env
+.env.local
+
+# OS-specific
+*.swp
+*.swo
+*.bak
