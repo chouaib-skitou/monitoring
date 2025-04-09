@@ -1,0 +1,36 @@
+{
+    "info": {
+      "name": "Payment Service",
+      "_postman_id": "1f72f6b0-dbf0-4b7f-bc2e-4a9bb13461b0",
+      "description": "Stripe payment service - create intent",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Create Payment Intent",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "type": "text"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"amount\": 20\n}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/api/payments/create",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["api", "payments", "create"]
+          }
+        },
+        "response": []
+      }
+    ]
+  }
+  
