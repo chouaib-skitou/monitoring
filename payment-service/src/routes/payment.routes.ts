@@ -10,11 +10,11 @@ router.post('/create', PaymentController.createPayment);
 //     res.sendFile(path.join(__dirname, '../../index.html'));
 // });
 
-router.get('/config', (req, res) => {
-    res.json({
-        publishableKey: process.env.STRIPE_PUBLISHABLE_KEY
-    });
-});
+// router.get('/config', (req, res) => {
+//     res.json({
+//         publishableKey: process.env.STRIPE_PUBLISHABLE_KEY
+//     });
+// });
   
 
 export default router;
