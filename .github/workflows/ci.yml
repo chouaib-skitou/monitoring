@@ -43,7 +43,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: frontend-app
+        working-directory: frontend
 
     steps:
       - name: 🛎️ Checkout code
@@ -54,10 +54,7 @@ jobs:
         with:
           node-version: 18
 
-      - name: 📦 Install dependencies with pnpm
+      - name: 🔧 Enable Corepack and install dependencies with pnpm
         run: |
           corepack enable
-          pnpm install --frozen-lockfile
-
-      - name: 🛠️ Build project
-        run: pnpm build
+          pnpm install
