@@ -5,7 +5,7 @@ import PaymentRepository from '../repositories/payment.repository';
 dotenv.config();
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-  apiVersion: '2023-10-16',
+  apiVersion: '2025-03-31.basil', // ✅ Updated Stripe API version
 });
 
 const createPaymentIntent = async (
