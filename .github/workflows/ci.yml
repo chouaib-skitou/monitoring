@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  ci:
+  analytics_app_ci:
     runs-on: ubuntu-latest
 
     defaults:
@@ -37,3 +37,27 @@ jobs:
 
       - name: 🐳 Build Docker image
         run: docker build -t analytics-app .
+
+  frontend_ci:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend-app
+
+    steps:
+      - name: 🛎️ Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🟨 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install dependencies with pnpm
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: 🛠️ Build project
+        run: pnpm build
