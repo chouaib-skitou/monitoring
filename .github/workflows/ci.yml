@@ -58,3 +58,27 @@ jobs:
         run: |
           corepack enable
           pnpm install
+
+      - name: 🏗️ Build frontend
+        run: pnpm build
+
+  payment_service_ci:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: payment-service
+
+    steps:
+      - name: 🛎️ Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🟨 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 🔧 Enable Corepack and install dependencies with pnpm
+        run: |
+          corepack enable
+          pnpm install
