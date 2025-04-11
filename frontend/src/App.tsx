@@ -19,3 +19,18 @@
 // export default App;
 
 
+import PaymentForm from "./components/forms/payment-form/payment-form"
+import "./App.css"
+
+function App() {
+  return (
+    <div className="app">
+      <PaymentForm />
+    </div>
+  )
+}
+
+export default App
+
+
+
