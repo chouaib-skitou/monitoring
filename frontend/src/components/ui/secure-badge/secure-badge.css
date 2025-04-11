@@ -1,0 +1,18 @@
+.secure-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    color: var(--gray-500);
+    font-size: 14px;
+    transition: color 0.2s ease;
+  }
+  
+  .secure-badge:hover {
+    color: var(--gray-700);
+  }
+  
+  .secure-badge svg {
+    margin-right: 8px;
+  }
+  
