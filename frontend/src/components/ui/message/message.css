@@ -1,0 +1,26 @@
+.message-container {
+    padding: 16px;
+    border-radius: var(--radius);
+    margin-top: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+  }
+  
+  .message-container svg {
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+  
+  .message-container.error {
+    background-color: var(--danger-light);
+    border: 1px solid var(--danger);
+    color: var(--danger);
+  }
+  
+  .message-container.success {
+    background-color: var(--success-light);
+    border: 1px solid var(--success);
+    color: var(--success);
+  }
+  
