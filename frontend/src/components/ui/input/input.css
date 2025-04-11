@@ -1,0 +1,73 @@
+.form-group {
+    margin-bottom: 24px;
+    position: relative;
+  }
+  
+  .form-group:focus-within label {
+    color: var(--primary);
+  }
+  
+  .form-group.has-error label {
+    color: var(--danger);
+  }
+  
+  .form-group.has-error input {
+    border-color: var(--danger);
+  }
+  
+  .form-group.has-error:focus-within input {
+    box-shadow: 0 0 0 4px var(--danger-light);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--gray-700);
+    transition: color 0.2s ease;
+  }
+  
+  .input-wrapper {
+    position: relative;
+  }
+  
+  input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid var(--gray-300);
+    border-radius: var(--radius);
+    font-size: 16px;
+    transition: all 0.2s ease;
+    background-color: var(--gray-50);
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background-color: white;
+    box-shadow: 0 0 0 4px var(--primary-light);
+  }
+  
+  input::placeholder {
+    color: var(--gray-400);
+  }
+  
+  .input-with-icon .input-icon {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    color: var(--gray-500);
+  }
+  
+  .input-with-icon input {
+    padding-left: 46px;
+  }
+  
+  .input-error {
+    color: var(--danger);
+    font-size: 14px;
+    margin-top: 6px;
+  }
+  
