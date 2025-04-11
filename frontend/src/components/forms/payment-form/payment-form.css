@@ -1,0 +1,134 @@
+/* Two-column layout */
+.payment-page {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .test-cards-container {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: 32px;
+    margin: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1.5;
+    min-width: 400px;
+  }
+  
+  @media (hover: hover) {
+    .container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 8px;
+  }
+  
+  .header p {
+    color: var(--gray-500);
+    font-size: 16px;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .form-row .form-group {
+    flex: 1;
+  }
+  
+  .amount-input {
+    position: relative;
+  }
+  
+  .amount-input::before {
+    content: "$";
+    position: absolute;
+    top: 42px;
+    left: 16px;
+    color: var(--gray-500);
+    font-weight: 500;
+  }
+  
+  .amount-input input {
+    padding-left: 28px;
+  }
+  
+  .test-cards-header {
+    margin-bottom: 24px;
+  }
+  
+  .test-cards-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 8px;
+  }
+  
+  .test-cards-header p {
+    color: var(--gray-500);
+    font-size: 16px;
+  }
+  
+  .test-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .payment-page {
+      flex-direction: column;
+    }
+  
+    .test-cards-container,
+    .container {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  
+    .test-cards {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+  
+    .header h1 {
+      font-size: 24px;
+    }
+  
+    .form-row {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+  
